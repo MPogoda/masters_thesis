@@ -1,4 +1,5 @@
 \chapter{Математичне моделювання та статистичний експеримент}
+\label{chap:testing}
 
 \section{Пошук у синтетичному сигналі}
     В цьому підрозділі розглянемо пошук шаблону в сигналі, що був згенерований як певна композиція неперервних
@@ -17,6 +18,8 @@
         На рисунку~\ref{fig:a-3} наведені відповідні ефектограми нормалізованої взаємокореляції, нормалізованої суми
         квадратів відстаней та методу на основі поліномів Кунченко.
 
+        \todo[inline]{Вписати дані після застосування пірамідального пошуку}
+
         \stepcounter{tablecount}
         \begin{table}
             {|p{0.2\textwidth}|C{0.2\textwidth}|C{0.27\textwidth}|p{0.15\textwidth}|}
@@ -25,19 +28,21 @@
             {\hline
                          & Час, с & Абсолютна похибка & Екстремум\\
                 \hline}
-            Kunchenko    & 108    & -0,0441           & 0,0633\\
-            NCC          & 5,55   & -0,0448           & 0,2496\\
-            NSSD         & 5,51   & -0,0448           & 1.5004\\
+            Kunchenko & 108,01 & -0,04 & 0,06\\
+            NCC       & 5,55   & -0,04 & 0,25\\
+            NSSD      & 5,51   & -0,04 & 1.50\\
         \end{table}
 
+
         \stepcounter{figurecount}
-        \begin{figure}[!h]
+        \begin{figure}[h]
             \centering
             \subfloat[Без шуму]{%
-                \includegraphics[width=0.48\textwidth]{a_1.eps}
+                \includegraphics[width=0.8\textwidth]{a_1.eps}
             }
+
             \subfloat[Із шумом]{%
-                \includegraphics[width=0.48\textwidth]{a_2.eps}
+                \includegraphics[width=0.8\textwidth]{a_2.eps}
             }
             \caption{Приклад сигналу із шаблоном без модифікації}\label{fig:a-1}
         \end{figure}
@@ -56,7 +61,7 @@
             \subfloat[NSSD]{%
                 \includegraphics[height=0.28\textheight]{a_5.eps}
             }
-            \caption{Приклад сигналу із шаблоном без модифікації}\label{fig:a-3}
+            \caption{Пошук шаблона без модифікацій в синтетичному сигналі}\label{fig:a-3}
         \end{figure}
         У таблиці~\ref{tab:a-1} приведені дані статистичного експерименту.
 
@@ -69,10 +74,11 @@
 \begin{figure}[!h]
     \centering
     \subfloat[Сигнал]{%
-        \includegraphics[width=0.48\textwidth]{audio.eps}
+        \includegraphics[width=0.8\textwidth]{audio.eps}
     }
+
     \subfloat[Зразок]{%
-        \includegraphics[width=0.48\textwidth]{audio_template.eps}
+        \includegraphics[width=0.8\textwidth]{audio_template.eps}
     }
     \caption{Запис мовлення й шаблон для пошуку}\label{fig:audio}
 \end{figure}
@@ -98,10 +104,11 @@
 \begin{figure}[!h]
     \centering
     \subfloat[Сигнал]{%
-        \includegraphics[width=0.48\textwidth]{audio_energy.eps}
+        \includegraphics[width=0.8\textwidth]{audio_energy.eps}
     }
+
     \subfloat[Зразок]{%
-        \includegraphics[width=0.48\textwidth]{audio_template_energy.eps}
+        \includegraphics[width=0.8\textwidth]{audio_template_energy.eps}
     }
     \caption{Короткочасна енергія запису мовлення й шаблону для пошуку}\label{fig:audio-energy}
 \end{figure}
