@@ -393,87 +393,100 @@
 % нова команда для титульного аркушу
 % згідно прикладу з сайту факультету з незначними виправленнями
 \newcommand{\maketitlepage}[5]{
-	  \thispagestyle{empty}
-	  \setlength{\parindent}{0cm}
-		\begin{center} % центрування
-			\textbf{\MakeUppercase{Національний технічний університет України}}
+    \thispagestyle{empty}
+    \setlength{\parindent}{0cm}
+    \begin{center} % центрування
+        \textbf{\MakeUppercase{Національний технічний університет України}}
 
-			\textbf{\MakeUppercase{\invcommas{Київський політехнічний інститут}}}
+        \textbf{\MakeUppercase{\invcommas{Київський політехнічний інститут}}}
 
-			\textbf{Факультет прикладної математики}
+        \addvspace{1em}
 
-			\textbf{Кафедра прикладної математики}
+        Факультет прикладної математики
 
-			\addvspace{6pt} % невеликий відступ
+        Кафедра прикладної математики
 
-			\begin{flushright}
-				\renewcommand{\arraystretch}{0.8}
-				\begin{tabular}{l}
+        \addvspace{6pt} % невеликий відступ
 
-					\invcommas{До захисту допущено} \\
-					Завідувач кафедри ПМА\\
-					\_\_\_\_\_\_\_\_\_\_\_\_\_~О.~А.~Молчанов \\
-					\invcommas{\_\_\_\_}~\_\_\_\_\_\_\_\_\_\_\_\_\_~\the\year~р. \\
+        \setfontsize{13}
+        \begin{minipage}{0.3\textwidth}
+            \renewcommand{\arraystretch}{0.8}
+            \begin{tabular}{l}
+                \invcommas{На правах рукопису}\\
+                УДК 656.073\\
+                \\
+                \\
+            \end{tabular}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.4\textwidth}
+            \invcommas{До захисту допущено}
 
-				\end{tabular}
-			\end{flushright}
+            \vspace{0.5em}
 
-			\vfill
+            \renewcommand{\arraystretch}{0.8}
+            \begin{tabular}{l}
+                % \invcommas{До захисту допущено} \\
+                Завідувач кафедри\\
+                \underline{\hspace{6em}}~О.\,Р.~Чертов\\
+                \invcommas{\underline{\hspace{2em}}}~\underline{\hspace{5em}}~\the\year~р.\\
 
-			\setfontsize{20}
-			\textbf{{Дипломна робота}}%\MakeUppercase
-			\setfontsize{14}
+            \end{tabular}
+        \end{minipage}
 
-			\textbf{освітньо-кваліфікаційного рівня \invcommas{Бакалавр}}
+        \vfill
 
-		\end{center}
+        \setfontsize{20}
+        \textbf{Магістерська дисертація}%\MakeUppercase
+        \setfontsize{13}
 
-		з напрямку підготовки 6.040301 \invcommas{Прикладна математика}
+        \textbf{на здобуття ступеня магістра}
+    \end{center}
+    \setfontsize{13}
+    зі спеціальності 8.04030101 \invcommas{Прикладна математика}
 
-		на тему: \invcommas{#5}
+    на тему: #5
 
-		\vfill % невеликий відступ
+    \vfill % невеликий відступ
 
-		Виконав: студент IV курсу, групи {#2}
+    \mbox{\hspace{0.2em}}~Виконав: студент 2 курсу, групи {#2}
 
-		{\renewcommand{\arraystretch}{0.8}
-		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lll}
-			& {#1} & \_\_\_\_\_\_\_\_\_\_\_\_\_\\[6pt]
-			Керівник & {#3} & \_\_\_\_\_\_\_\_\_\_\_\_\_\\[6pt]
-			Консультант з охорони праці & ст. викладач Луц~Т.~Є. & \_\_\_\_\_\_\_\_\_\_\_\_\_\\[3pt]
-			Консультант з нормоконтролю & ст. викладач Мальчиков~В.~В. & \_\_\_\_\_\_\_\_\_\_\_\_\_\\[6pt]
-			Рецензент & {#4} & \_\_\_\_\_\_\_\_\_\_\_\_\_\\
-		\end{tabular*}}
+    \begin{tabular}{p{0.25\textwidth} p{0.55\textwidth} b{0.1\textwidth}}
+            \multicolumn{2}{l}{{#1}} & \underline{\hspace{0.1\textwidth}}\\
+            Науковий керівник & {#3} & \underline{\hspace{0.1\textwidth}}\\
+            Консультант із~\mbox{\hspace{2em}} нормоконтролю & старший викладач Мальчиков~В.\,В. & \underline{\hspace{0.1\textwidth}}\\
+            Рецензент & {#4} & \underline{\hspace{0.1\textwidth}}
+    \end{tabular}
 
-		\vfill % автоматично заповнюємо проміжок
+    \vfill % автоматично заповнюємо проміжок
 
-		\begin{flushright}
-			\renewcommand{\arraystretch}{0.8}
-			\begin{tabular}{l}
-				Засвідчую, що в цій дипломній роботі\\
-				немає запозичень із праць інших авторів\\
-				без відповідних посилань.\\
-				Студент~\_\_\_\_\_\_\_\_\_\_\_\_\_
-			\end{tabular}
-		\end{flushright}
+    \begin{flushright}
+        \renewcommand{\arraystretch}{0.8}
+        \begin{tabular}{l}
+            Засвідчую, що у цій магістерській\\
+            дисертації немає запозичень з праць інших\\
+            авторів без відповідних посилань.\\
+            Студент~\_\_\_\_\_\_\_\_\_\_\_\_\_
+        \end{tabular}
+    \end{flushright}
 
-		\vfill
+    \vfill
 
-		\begin{center}
-			Київ --- \the\year\ року
-		\end{center}
+    \begin{center}
+        Київ --- \the\year\ року
+    \end{center}
 
-		\clearpage % починаємо з нової сторінки
+    \clearpage % починаємо з нової сторінки
 
-		\setcounter{page}{2} % номер сторінки буде 2
+    \setcounter{page}{2} % номер сторінки буде 2
 
-		\setlength{\parindent}{1.25cm} % задаємо відступ першого рядка абзацу (5 знаків, або 1,25 см)
+    \setlength{\parindent}{1.25cm} % задаємо відступ першого рядка абзацу (5 знаків, або 1,25 см)
 
-		% пропуск рядка до та після формули
-		\setlength{\belowdisplayskip}{14pt}
-		\setlength{\abovedisplayskip}{14pt}
-		\setlength{\belowdisplayshortskip}{14pt}
-		\setlength{\abovedisplayshortskip}{14pt}
+    % пропуск рядка до та після формули
+    \setlength{\belowdisplayskip}{14pt}
+    \setlength{\abovedisplayskip}{14pt}
+    \setlength{\belowdisplayshortskip}{14pt}
+    \setlength{\abovedisplayshortskip}{14pt}
 }
 
 % нова команда для анотації
