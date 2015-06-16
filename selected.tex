@@ -47,18 +47,17 @@
     \end{equation}
 
     Можна показати, що коефіцієнти $a_k, k \ne 0$ знаходяться з системи лінійних рівнянь:
-
     \begin{equation}
         \label{eq:linear-system}
         \sum^t_{k=1,k\ne b} a_k F_{v,k} = F_{v,b},\qquad v=\overline{0,t}, v \ne b,
     \end{equation}
     де
-    \begin{eqnarray}
+    \begin{align}
         \label{eq:centered-correlants}
-        F_{v,k} &\equiv& \Psi_{v,k} - \Psi_v \Psi_k \| u_0( x ) \|^2\\
-        \Psi_v &\equiv& \frac{\Psi_{v,0}}{\left\|u_0(x)\right\|^2}\\
-        a_0 &=& \Psi_b - \sum\limits_{v=1, v \ne b}^r{a_v \Psi_v}
-    \end{eqnarray}
+        F_{v,k} &\equiv \Psi_{v,k} - \Psi_v \Psi_k \| u_0( x ) \|^2\\
+        \Psi_v &\equiv \frac{\Psi_{v,0}}{\left\|u_0(x)\right\|^2}\\
+        a_0 &= \Psi_b - \sum\limits_{v=1, v \ne b}^r{a_v \Psi_v}
+    \end{align}
 
     Спростив вираз, отримаємо:
     \begin{equation}
@@ -153,7 +152,7 @@
         \stepcounter{figurecount}
         \begin{figure}[!h]
             \centering
-            \includegraphics[height=0.8\textheight]{svenn.eps}
+            \includegraphics[height=0.85\textheight]{svenn.eps}
             \caption{Блок"=схема роботи алгоритму пошуку інтервалу з екстремумом}
             \label{fig:svenn-algorithm}
         \end{figure}
@@ -167,15 +166,15 @@
         Алгоритм методу золотого перетину має наступний вид:
         \begin{enumerate}
             \item Задати
-                \begin{eqnarray*}
-                    x_0 &=& a\\
-                    x_1 &=& b\\
-                \end{eqnarray*}
+                \begin{align*}
+                    x_0 &= a\\
+                    x_1 &= b\\
+                \end{align*}
             \item Обчислити
-                \begin{eqnarray*}
-                    x_l &=& x_1 - \frac{x_1 - x_0}{\phi}\\
-                    x_r &=& x_0 + \frac{x_1 - x_0}{\phi},
-                \end{eqnarray*}
+                \begin{align*}
+                    x_l &= x_1 - \frac{x_1 - x_0}{\phi}\\
+                    x_r &= x_0 + \frac{x_1 - x_0}{\phi},
+                \end{align*}
                 де $\phi = \frac{1 + \sqrt{ 5 }}{2}$ --- пропорція золотого перетину.
             \item\label{enum:step3} Якщо $f(x_l) < f(x_r)$, то задати $x_0 = x_l$, інакше $x_1 = x_r$.
             \item Перевірити умови зупинки (наприклад, $\|x_1 - x_0\| < \varepsilon$).
