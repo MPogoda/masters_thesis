@@ -237,116 +237,130 @@
         \end{figure}
         \clearpage
     \subsection{Пошук шаблону в коротко"=часовій енергії}
-        \paragraph{Коротко"=часова енергія побудована з використанням прямокутного вікна та мінімального кроку}
-            Найпростіший й найшвидший метод виділення вікон в сигналі --- прямокутне вікно.
-            В цьому розділі розглянемо поведінку розглянутих алгоритмів для пошуку шаблонів в коротко"=часовій енергії
-            сигналу, що була отримана з використанням найпростішого й найшвидшого методу виділення вікон ---
-            прямокутні вікна.
-            Такі вікна бралися з мінімально можливим кроком --- кроком дискретизації.
+        Розглянемо поведінку розглянутих алгоритмів для пошуку шаблонів в коротко"=часовій енергії сигналу, що
+        була отримана з використанням найпростішого й найшвидшого методу виділення вікон --- прямокутні вікна.
+        Такі вікна бралися з мінімально можливим кроком --- кроком дискретизації.
 
-            На рисунку~\ref{fig:audio-energy-rect-min} на сторінці~\pageref{fig:audio-energy-rect-min} наведений
-            вигляд коротко"=часової енергії шаблону та сигналу, що були отримані вказаним способом.
+        На рисунку~\ref{fig:audio-energy-rect-min} на сторінці~\pageref{fig:audio-energy-rect-min} наведений
+        вигляд коротко"=часової енергії шаблону та сигналу, що були отримані вказаним способом.
 
-            На рисунках~\ref{fig:matched-energy-rect-min-rect},~\ref{fig:matched-energy-rect-min-hann}
-            та~\ref{fig:matched-energy-rect-min-hamming} на
-            сторінках~\pageref{fig:matched-energy-rect-min-rect},~\pageref{fig:matched-energy-rect-min-hann}
-            та~\pageref{fig:matched-energy-rect-min-hamming} відповідно, зображено результати пошуку шаблону в
-            аудіосигналі.
+        На рисунках~\ref{fig:matched-energy-rect-min-rect},~\ref{fig:matched-energy-rect-min-hann}
+        та~\ref{fig:matched-energy-rect-min-hamming} на
+        сторінках~\pageref{fig:matched-energy-rect-min-rect},~\pageref{fig:matched-energy-rect-min-hann}
+        та~\pageref{fig:matched-energy-rect-min-hamming} відповідно, зображено результати пошуку шаблону в
+        аудіосигналі.
 
-            З цих результатів видно, що усі з розглянутих методів мали дуже багато хибних спрацювань,
-            а отже використання прямокутного вікна з мінімальним кроком не є доцільним при підрахунку коротко"=часової
-            енергії.
-
-            \stepcounter{figurecount}
-            \begin{figure}[h]
-                \centering
-                \subfloat[Сигнал]{%
-                    \includegraphics[width=0.8\textwidth]{audio_energy_rect_min.eps}
-                }
-
-                \subfloat[Зразок]{%
-                    \includegraphics[width=0.8\textwidth]{audio_t_energy_rect_min.eps}
-                }
-                \caption{Короткочасна енергія запису мовлення й шаблону для пошуку використовуючи прямокутне вікно та
-                    мінімальний крок}
-                \label{fig:audio-energy-rect-min}
-            \end{figure}
-
-            \stepcounter{figurecount}
-            \begin{figure}[h]
-                \centering
-                \subfloat[NCC]{%
-                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ncc-rect.eps}
-                }
-                % 2.55
-
-                \subfloat[NSSD]{%
-                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ssd-rect.eps}
-                }
-                % 2.61
-
-                \subfloat[Kunchenko]{%
-                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-kun-rect.eps}
-                }
-                % 94.68
-
-                \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-rect-min},
-                    використовуючи прямокутні вікна}
-                \label{fig:matched-energy-rect-min-rect}
-            \end{figure}
-
-            \stepcounter{figurecount}
-            \begin{figure}[h]
-                \centering
-                \subfloat[NCC]{%
-                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ncc-han.eps}
-                }
-                % 3.25
-
-                \subfloat[NSSD]{%
-                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ssd-han.eps}
-                }
-                % 3.24
-
-                \subfloat[Kunchenko]{%
-                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-kun-han.eps}
-                }
-                % 118.38
-
-                \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-rect-min},
-                    використовуючи вікна Гана}
-                \label{fig:matched-energy-rect-min-hann}
-            \end{figure}
-
-            \stepcounter{figurecount}
-            \begin{figure}[h]
-                \centering
-                \subfloat[NCC]{%
-                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ncc-hamming.eps}
-                }
-                % 3.17
-
-                \subfloat[NSSD]{%
-                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ssd-hamming.eps}
-                }
-                % 3.35
-
-                \subfloat[Kunchenko]{%
-                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-kun-hamming.eps}
-                }
-                % 98.26
-
-                \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-rect-min},
-                    використовуючи вікна Геммінга}
-                \label{fig:matched-energy-rect-min-hamming}
-            \end{figure}
-
-
-
-
+        З цих результатів видно, що усі з розглянутих методів мали дуже багато хибних спрацювань,
+        а отже використання прямокутного вікна з мінімальним кроком не є доцільним при підрахунку коротко"=часової
+        енергії.
 
         \stepcounter{figurecount}
-        \begin{figure}[!h]
+        \begin{figure}[h]
+            \centering
+            \subfloat[Сигнал]{%
+                \includegraphics[width=0.8\textwidth]{audio_energy_rect_min.eps}
+            }
+
+            \subfloat[Зразок]{%
+                \includegraphics[width=0.8\textwidth]{audio_t_energy_rect_min.eps}
+            }
+            \caption{Короткочасна енергія запису мовлення й шаблону для пошуку використовуючи прямокутне вікно та
+                мінімальний крок}
+            \label{fig:audio-energy-rect-min}
+        \end{figure}
+
+        \stepcounter{figurecount}
+        \begin{figure}[h]
+            \centering
+            \subfloat[NCC]{%
+                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ncc-rect.eps}
+            }
+            % 2.55
+
+            \subfloat[NSSD]{%
+                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ssd-rect.eps}
+            }
+            % 2.61
+
+            \subfloat[Kunchenko]{%
+                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-kun-rect.eps}
+            }
+            % 94.68
+
+            \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-rect-min},
+                використовуючи прямокутні вікна}
+            \label{fig:matched-energy-rect-min-rect}
+        \end{figure}
+
+        \stepcounter{figurecount}
+        \begin{figure}[h]
+            \centering
+            \subfloat[NCC]{%
+                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ncc-han.eps}
+            }
+            % 3.25
+
+            \subfloat[NSSD]{%
+                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ssd-han.eps}
+            }
+            % 3.24
+
+            \subfloat[Kunchenko]{%
+                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-kun-han.eps}
+            }
+            % 118.38
+
+            \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-rect-min},
+                використовуючи вікна Гана}
+            \label{fig:matched-energy-rect-min-hann}
+        \end{figure}
+
+        \stepcounter{figurecount}
+        \begin{figure}[h]
+            \centering
+            \subfloat[NCC]{%
+                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ncc-hamming.eps}
+            }
+            % 3.17
+
+            \subfloat[NSSD]{%
+                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ssd-hamming.eps}
+            }
+            % 3.35
+
+            \subfloat[Kunchenko]{%
+                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-kun-hamming.eps}
+            }
+            % 98.26
+
+            \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-rect-min},
+                використовуючи вікна Геммінга}
+            \label{fig:matched-energy-rect-min-hamming}
+        \end{figure}
+
+        \clearpage
+
+        Розглянемо поведінку розглянутих алгоритмів для пошуку шаблонів в коротко"=часовій енергії сигналу, що була
+        отримана з використанням найпростішого й найшвидшого методу виділення вікон --- прямокутні вікна.
+        Такі вікна бралися з кроком, що дорівнює половині вікна
+
+        На рисунку~\ref{fig:audio-energy-rect-half} на сторінці~\pageref{fig:audio-energy-rect-half} наведений
+        вигляд коротко"=часової енергії шаблону та сигналу, що були отримані вказаним способом.
+        Як видно з цього рисунку, отримані коротко"=часові енергії мають значно менше значень, а тому мають менш
+        деталізований вигляд.
+
+        На рисунках~\ref{fig:matched-energy-rect-half-rect} та~\ref{fig:matched-energy-rect-half-hamming} на
+        сторінках~\pageref{fig:matched-energy-rect-half-rect} та~\pageref{fig:matched-energy-rect-half-hamming}
+        відповідно, зображено результати пошуку шаблону в аудіосигналі.
+
+        З цих результатів видно, що використання великого інтервалу між вікнами дозволяє отримувати дуже схожі
+        результати, що й при використанні менших проміжків, але значно швидше (адже сигнал та шаблон складається зі
+        значно меншої кількості значень).
+        Проте, так само, як і в попередньому випадку, результати пошуку шаблонів в коротко"=часовій енергії, що була
+        отримана з використанням прямокутних вікон мають невисоку точність.
+
+        \stepcounter{figurecount}
+        \begin{figure}[h]
             \centering
             \subfloat[Сигнал]{%
                 \includegraphics[width=0.8\textwidth]{audio_energy_rect_half.eps}
@@ -356,11 +370,12 @@
                 \includegraphics[width=0.8\textwidth]{audio_t_energy_rect_half.eps}
             }
             \caption{Короткочасна енергія запису мовлення й шаблону для пошуку використовуючи прямокутне вікно та крок
-                середнього розміру}\label{fig:audio-energy-rect-half}
+                середнього розміру}
+            \label{fig:audio-energy-rect-half}
         \end{figure}
 
         \stepcounter{figurecount}
-        \begin{figure}[!h]
+        \begin{figure}[h]
             \centering
             \subfloat[NCC]{%
                 \includegraphics[height=0.28\textheight]{audio-energy-rect-half-ncc-rect.eps}
@@ -378,11 +393,12 @@
             % 0.8
 
             \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-rect-half}, використовуючи
-                прямокутні вікна}\label{fig:matched-energy-rect-half-rect}
+                прямокутні вікна}
+            \label{fig:matched-energy-rect-half-rect}
         \end{figure}
 
         \stepcounter{figurecount}
-        \begin{figure}[!h]
+        \begin{figure}[h]
             \centering
             \subfloat[NCC]{%
                 \includegraphics[height=0.28\textheight]{audio-energy-rect-half-ncc-hamming.eps}
@@ -400,8 +416,11 @@
             % 1.03
 
             \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-rect-half}, використовуючи
-                вікна Геммінга}\label{fig:matched-energy-rect-half-hamming}
+                вікна Геммінга}
+            \label{fig:matched-energy-rect-half-hamming}
         \end{figure}
+
+        \clearpage
 
 
 
