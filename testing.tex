@@ -422,12 +422,25 @@
 
         \clearpage
 
+        % HAN
+        Розглянемо поведінку розглянутих алгоритмів для пошуку шаблонів в коротко"=часовій енергії сигналу, що була
+        отримана з використанням віконної функції Гана.
+        Такі вікна бралися з кроком, що дорівнює кроку дискретизації, тобто з мінімально"=можливим кроком.
 
+        На рисунку~\ref{fig:audio-energy-han-min} на сторінці~\pageref{fig:audio-energy-han-min} наведений
+        вигляд коротко"=часової енергії шаблону та сигналу, що були отримані вказаним способом.
+        Як видно з цього рисунку, отримані коротко"=часові енергії мають більш гладку форму, ніж коротко"=часова
+        енергія, що була отримана з використанням прямокутного вікна.
 
+        На рисунках~\ref{fig:matched-energy-han-min-rect} та~\ref{fig:matched-energy-han-min-hamming} на
+        сторінках~\pageref{fig:matched-energy-han-min-rect} та~\pageref{fig:matched-energy-han-min-hamming}
+        відповідно, зображено результати пошуку шаблону в аудіосигналі.
 
+        З цих результатів видно, що використання вікна Гана для обчислення коротко"=часової енергії призвело до того,
+        що кількість хибних спрацювань алгоритмів значно зменшилась, але все рівно алгоритми мають невелику точність.
 
         \stepcounter{figurecount}
-        \begin{figure}[!h]
+        \begin{figure}[h]
             \centering
             \subfloat[Сигнал]{%
                 \includegraphics[width=0.8\textwidth]{audio_energy_han_min.eps}
@@ -437,11 +450,12 @@
                 \includegraphics[width=0.8\textwidth]{audio_t_energy_han_min.eps}
             }
             \caption{Короткочасна енергія запису мовлення й шаблону для пошуку використовуючи вікно Гана та крок
-                мінімального розміру}\label{fig:audio-energy-han-min}
+                мінімального розміру}
+            \label{fig:audio-energy-han-min}
         \end{figure}
 
         \stepcounter{figurecount}
-        \begin{figure}[!h]
+        \begin{figure}[h]
             \centering
             \subfloat[NCC]{%
                 \includegraphics[height=0.28\textheight]{audio-energy-han-min-ncc-rect.eps}
@@ -457,13 +471,13 @@
                 \includegraphics[height=0.28\textheight]{audio-energy-han-min-kun-rect.eps}
             }
             % 0.8
-
             \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-han-min}, використовуючи
-                прямокутні вікна}\label{fig:matched-energy-han-min-rect}
+                прямокутні вікна}
+            \label{fig:matched-energy-han-min-rect}
         \end{figure}
 
         \stepcounter{figurecount}
-        \begin{figure}[!h]
+        \begin{figure}[h]
             \centering
             \subfloat[NCC]{%
                 \includegraphics[height=0.28\textheight]{audio-energy-han-min-ncc-hamming.eps}
@@ -481,15 +495,33 @@
             % 138.36
 
             \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-han-min}, використовуючи
-                вікна Геммінга}\label{fig:matched-energy-han-min-hamming}
+                вікна Геммінга}
+            \label{fig:matched-energy-han-min-hamming}
         \end{figure}
 
+        \clearpage
 
+        % HAMMING
+        Розглянемо поведінку розглянутих алгоритмів для пошуку шаблонів в коротко"=часовій енергії сигналу, що була
+        отримана з використанням віконної функції Геммінга.
+        Такі вікна бралися з кроком, що дорівнює кроку дискретизації, тобто з мінімально"=можливим кроком.
 
+        На рисунку~\ref{fig:audio-energy-hamming-min} на сторінці~\pageref{fig:audio-energy-han-min} наведений
+        вигляд коротко"=часової енергії шаблону та сигналу, що були отримані вказаним способом.
+        По відношенню до коротко"=часової енергії, що була сгенерована з використанням вікна Гана, отримана енергія
+        має менш різкі перепади на графіку.
 
+        На рисунках~\ref{fig:matched-energy-hamming-min-rect} та~\ref{fig:matched-energy-han-min-hamming} на
+        сторінках~\pageref{fig:matched-energy-hamming-min-rect} та~\pageref{fig:matched-energy-han-min-hamming}
+        відповідно, зображено результати пошуку шаблону в аудіосигналі.
+
+        З наведених графіків ефектограм видно, що для коротко"=часової енергії, що була згенерована саме таким чином,
+        метод поліномів Кунченка знайшов усі входження шаблону до сигналу.
+        Також необхідно зазначити той факт, що використання в методі ковзного вікна вікон, відмінних від прямокутного,
+        на відміну від попередніх ситуацій, не призводило до зменшення амплітуди ефектограми для хибних спрацювань.
 
         \stepcounter{figurecount}
-        \begin{figure}[!h]
+        \begin{figure}[h]
             \centering
             \subfloat[Сигнал]{%
                 \includegraphics[width=0.8\textwidth]{audio_energy_hamming_min.eps}
@@ -499,11 +531,12 @@
                 \includegraphics[width=0.8\textwidth]{audio_t_energy_hamming_min.eps}
             }
             \caption{Короткочасна енергія запису мовлення й шаблону для пошуку використовуючи вікно Геммінга та крок
-                мінімального розміру}\label{fig:audio-energy-hamming-min}
+                мінімального розміру}
+            \label{fig:audio-energy-hamming-min}
         \end{figure}
 
         \stepcounter{figurecount}
-        \begin{figure}[!h]
+        \begin{figure}[h]
             \centering
             \subfloat[NCC]{%
                 \includegraphics[height=0.28\textheight]{audio-energy-hamming-min-ncc-rect.eps}
@@ -520,13 +553,13 @@
             }
             % 108.87
 
-            \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-hamming-min}, використовуючи
-                прямокутні вікна}\label{fig:matched-energy-hamming-min-rect}
+            \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-hamming-min},
+                використовуючи прямокутні вікна}
+            \label{fig:matched-energy-hamming-min-rect}
         \end{figure}
-        \clearpage
-        % TODO Remove ^
+
         \stepcounter{figurecount}
-        \begin{figure}[!h]
+        \begin{figure}[h]
             \centering
             \subfloat[NCC]{%
                 \includegraphics[height=0.28\textheight]{audio-energy-hamming-min-ncc-hamming.eps}
@@ -543,9 +576,26 @@
             }
             % 130.13
 
-            \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-hamming-min}, використовуючи
-                вікна Геммінга}
+            \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-hamming-min},
+                використовуючи вікна Геммінга}
             \label{fig:matched-energy-hamming-min-hamming}
         \end{figure}
+
+        \clearpage
+
+\section{Висновки}
+    В цьому розділі були успішно проведений статистичний експеримент для дослідження поведінки методів пошуку
+    шаблонів, розглянутих в попередніх розділах, як на штучному сигналу, який був згенерований аналітично, так і на
+    аудіозаписах мовлення.
+
+    В результаті тестування було виявлено, що:
+    \begin{itemize}
+        \item Метод поліномів Кунченко дозволяє отримати з точністю, не гіршою за розглянути найпоширеніші методи,
+            місцезнаходження шаблону в сигналі, навіть якщо шаблон зазнав змін.
+        \item В залежності від типу сигналу, можливо збільшити точність пошуку завдяки використанню віконних функцій у
+            методі ковзного вікна.
+        \item Завдяки використання коротко"=часової енергії метод поліномів Кунченка дозволяє з високою точністю
+            знаходить шаблон в аудіосигналі, що містить у собі запис мовлення.
+    \end{itemize}
 
 % vim: spelllang=uk,en spell filetype=tex
