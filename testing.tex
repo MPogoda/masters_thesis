@@ -238,116 +238,108 @@
         \clearpage
     \subsection{Пошук шаблону в коротко"=часовій енергії}
         \paragraph{Коротко"=часова енергія побудована з використанням прямокутного вікна та мінімального кроку}
-        Найпростіший й найшвидший метод виділення вікон в сигналі --- прямокутне вікно.
-        В цьому розділі розглянемо поведінку розглянутих алгоритмів для пошуку шаблонів в коротко"=часовій енергії
-        сигналу, що була отримана з використанням найпростішого й найшвидшого методу виділення вікон --- прямокутні
-        вікна.
-        Такі вікна бралися з мінімально можливим кроком --- кроком дискретизації.
+            Найпростіший й найшвидший метод виділення вікон в сигналі --- прямокутне вікно.
+            В цьому розділі розглянемо поведінку розглянутих алгоритмів для пошуку шаблонів в коротко"=часовій енергії
+            сигналу, що була отримана з використанням найпростішого й найшвидшого методу виділення вікон ---
+            прямокутні вікна.
+            Такі вікна бралися з мінімально можливим кроком --- кроком дискретизації.
 
-        На рисунку~\ref{fig:audio-energy-rect-min} на сторінці~\pageref{fig:audio-energy-rect-min} наведений вигляд
-        коротко"=часової енергії шаблону та сигналу, що були отримані вказаним способом.
+            На рисунку~\ref{fig:audio-energy-rect-min} на сторінці~\pageref{fig:audio-energy-rect-min} наведений
+            вигляд коротко"=часової енергії шаблону та сигналу, що були отримані вказаним способом.
 
-        На рисунках~\ref{fig:matched-energy-rect-min-rect},~\ref{fig:matched-energy-rect-min-hamming}
-        та~\ref{fig:matched-energy-rect-min-hanning} на
-        сторінках~\pageref{fig:matched-energy-rect-min-rect},~\pageref{fig:matched-energy-rect-min-hamming}
-        та~\pageref{fig:matched-energy-rect-min-hanning} відповідно, зображено результати пошуку шаблону в
-        аудіосигналі.
+            На рисунках~\ref{fig:matched-energy-rect-min-rect},~\ref{fig:matched-energy-rect-min-hann}
+            та~\ref{fig:matched-energy-rect-min-hamming} на
+            сторінках~\pageref{fig:matched-energy-rect-min-rect},~\pageref{fig:matched-energy-rect-min-hann}
+            та~\pageref{fig:matched-energy-rect-min-hamming} відповідно, зображено результати пошуку шаблону в
+            аудіосигналі.
 
-        З цих результатів видно, що використання жодного з методів не дозволило знайти усі входження шаблонів в
-        сигналі.
-        З цих результатів можна зробити наступні спостереження:
-        \begin{itemize}
-            \item Екстремуми, що відповідають коректним позиціям шаблону в сигналі, при використанні методу поліномів
-                Кунченка, як правило, є більш вираженими ніж у інших методів.
-            \item Використання вікон, відмінних від прямокутного значно зменшує амплітуду ефектограм в зонах, що не
-                містять шаблону.
-                В цих зонах все ще є певні екстремуми, але вони стають більш вираженими.
-            \item Метод сум квадратів відстаней при використанні вікон, відмінних від прямокутних, має тільки один
-                коректний екстремум, менший за поріг.
-        \end{itemize}
-        \stepcounter{figurecount}
-        \begin{figure}[h]
-            \centering
-            \subfloat[Сигнал]{%
-                \includegraphics[width=0.8\textwidth]{audio_energy_rect_min.eps}
-            }
+            З цих результатів видно, що усі з розглянутих методів мали дуже багато хибних спрацювань,
+            а отже використання прямокутного вікна з мінімальним кроком не є доцільним при підрахунку коротко"=часової
+            енергії.
 
-            \subfloat[Зразок]{%
-                \includegraphics[width=0.8\textwidth]{audio_t_energy_rect_min.eps}
-            }
-            \caption{Короткочасна енергія запису мовлення й шаблону для пошуку використовуючи прямокутне вікно та
-                мінімальний крок}
-            \label{fig:audio-energy-rect-min}
-        \end{figure}
+            \stepcounter{figurecount}
+            \begin{figure}[h]
+                \centering
+                \subfloat[Сигнал]{%
+                    \includegraphics[width=0.8\textwidth]{audio_energy_rect_min.eps}
+                }
 
-        \stepcounter{figurecount}
-        \begin{figure}[h]
-            \centering
-            \subfloat[NCC]{%
-                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ncc-rect.eps}
-            }
-            % 2.55
+                \subfloat[Зразок]{%
+                    \includegraphics[width=0.8\textwidth]{audio_t_energy_rect_min.eps}
+                }
+                \caption{Короткочасна енергія запису мовлення й шаблону для пошуку використовуючи прямокутне вікно та
+                    мінімальний крок}
+                \label{fig:audio-energy-rect-min}
+            \end{figure}
 
-            \subfloat[NSSD]{%
-                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ssd-rect.eps}
-            }
-            % 2.61
+            \stepcounter{figurecount}
+            \begin{figure}[h]
+                \centering
+                \subfloat[NCC]{%
+                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ncc-rect.eps}
+                }
+                % 2.55
 
-            \subfloat[Kunchenko]{%
-                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-kun-rect.eps}
-            }
-            % 94.68
+                \subfloat[NSSD]{%
+                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ssd-rect.eps}
+                }
+                % 2.61
 
-            \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-rect-min}, використовуючи
-                прямокутні вікна}
-            \label{fig:matched-energy-rect-min-rect}
-        \end{figure}
+                \subfloat[Kunchenko]{%
+                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-kun-rect.eps}
+                }
+                % 94.68
 
-        \stepcounter{figurecount}
-        \begin{figure}[h]
-            \centering
-            \subfloat[NCC]{%
-                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ncc-han.eps}
-            }
-            % 3.25
+                \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-rect-min},
+                    використовуючи прямокутні вікна}
+                \label{fig:matched-energy-rect-min-rect}
+            \end{figure}
 
-            \subfloat[NSSD]{%
-                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ssd-han.eps}
-            }
-            % 3.24
+            \stepcounter{figurecount}
+            \begin{figure}[h]
+                \centering
+                \subfloat[NCC]{%
+                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ncc-han.eps}
+                }
+                % 3.25
 
-            \subfloat[Kunchenko]{%
-                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-kun-han.eps}
-            }
-            % 118.38
+                \subfloat[NSSD]{%
+                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ssd-han.eps}
+                }
+                % 3.24
 
-            \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-rect-min}, використовуючи
-                вікна Гана}
-            \label{fig:matched-energy-rect-min-hann}
-        \end{figure}
+                \subfloat[Kunchenko]{%
+                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-kun-han.eps}
+                }
+                % 118.38
 
-        \stepcounter{figurecount}
-        \begin{figure}[h]
-            \centering
-            \subfloat[NCC]{%
-                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ncc-hamming.eps}
-            }
-            % 3.17
+                \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-rect-min},
+                    використовуючи вікна Гана}
+                \label{fig:matched-energy-rect-min-hann}
+            \end{figure}
 
-            \subfloat[NSSD]{%
-                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ssd-hamming.eps}
-            }
-            % 3.35
+            \stepcounter{figurecount}
+            \begin{figure}[h]
+                \centering
+                \subfloat[NCC]{%
+                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ncc-hamming.eps}
+                }
+                % 3.17
 
-            \subfloat[Kunchenko]{%
-                \includegraphics[height=0.28\textheight]{audio-energy-rect-min-kun-hamming.eps}
-            }
-            % 98.26
+                \subfloat[NSSD]{%
+                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-ssd-hamming.eps}
+                }
+                % 3.35
 
-            \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-rect-min}, використовуючи
-                вікна Геммінга}
-            \label{fig:matched-energy-rect-min-hamming}
-        \end{figure}
+                \subfloat[Kunchenko]{%
+                    \includegraphics[height=0.28\textheight]{audio-energy-rect-min-kun-hamming.eps}
+                }
+                % 98.26
+
+                \caption{Знайдений шаблон в енергії, наведеної на рисунку~\ref{fig:audio-energy-rect-min},
+                    використовуючи вікна Геммінга}
+                \label{fig:matched-energy-rect-min-hamming}
+            \end{figure}
 
 
 
