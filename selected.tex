@@ -1,4 +1,5 @@
 \chapter{Метод Кунченка}
+\label{chap:selected}
 
 Відомо, що поліном Тейлора є одним з найкращих способів апроксимації функції на деякому інтервалі, проте задля
 використання цього методу необхідно забезпечити $n$-раз гладкість функції.
@@ -115,8 +116,9 @@
     \subsection{Пірамідальний пошук}
         Оскільки основною складовою кількості обчислень можна вважати $O(k^2)$, було запропоновано використання методу
         так званого пірамідального пошуку.
-        \todo[inline]{Vanderbrug, G.J. and Rosenfeld, A. (1977) Two-stage Template Matching. IEEE Transactions on Computers, C-26,}
-        \todo[inline]{Rosenfeld, A. and Vanderbrug, G.J. (1977) Coarse-Fine Template Matching. IEEE Transactions on Systems, Man and Cybernetics, 7, 104-107.}
+% TODO Vanderbrug, G.J. and Rosenfeld, A. (1977) Two-stage Template Matching. IEEE Transactions on Computers, C-26,
+% TODO Rosenfeld, A. and Vanderbrug, G.J. (1977) Coarse-Fine Template Matching. IEEE Transactions on Systems, Man and
+% Cybernetics, 7, 104-107.
 
         Ідея цього методу полягає в тому, що спочатку виконується певне масштабування (стиснення) шаблону та сигналу.
         Після цього виконується пошук стисненого шаблону в стисненому сигналі.
@@ -136,8 +138,8 @@
                 націло.
                 В такому випадку можна вибрати кожне $m$-те значення сигналу та шаблону, де $m$ --- співвідношення
                 частот.
-                \todo[inline]{Ken Turkowski and Steve Gabriel (1990). "Filters for Common Resampling Tasks". In Andrew
-                    S. Glassner. Graphics Gems I. Academic Press. pp. 147–165. ISBN 978-0-12-286165-9.}
+% TODO Ken Turkowski and Steve Gabriel (1990). "Filters for Common Resampling Tasks". In Andrew S. Glassner. Graphics
+% Gems I. Academic Press. pp. 147–165. ISBN 978-0-12-286165-9.
             \item Брати середнє значення від деякого околу точки.
         \end{itemize}
     \subsection{Метод прискореного ковзання}
@@ -189,7 +191,7 @@
     Обраний метод пошуку шаблонів має меншу чутливість до зміни шаблону, ніж інші методи.
     Розглянемо застосування цього методу до задачі пошуку шаблону в мовленнєвому сигналі, оскільки шаблони в сигналах
     такого типу (деяка мовленнєва одиниця) зазвичай
-    \todo[inline]{Закінчити речення}
+% TODO Закінчити речення
 
     Мовлення отримується за рахунок зміни в часі голосового тракту.
     Через це мовленнєвий сигнал має нестаціонарну природу.
