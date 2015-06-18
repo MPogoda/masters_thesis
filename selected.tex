@@ -115,10 +115,7 @@
 
     \subsection{Пірамідальний пошук}
         Оскільки основною складовою кількості обчислень можна вважати $O(k^2)$, було запропоновано використання методу
-        так званого пірамідального пошуку.
-% TODO Vanderbrug, G.J. and Rosenfeld, A. (1977) Two-stage Template Matching. IEEE Transactions on Computers, C-26,
-% TODO Rosenfeld, A. and Vanderbrug, G.J. (1977) Coarse-Fine Template Matching. IEEE Transactions on Systems, Man and
-% Cybernetics, 7, 104-107.
+        так званого пірамідального пошуку.~\cite{book1}~\cite{book2}
 
         Ідея цього методу полягає в тому, що спочатку виконується певне масштабування (стиснення) шаблону та сигналу.
         Після цього виконується пошук стисненого шаблону в стисненому сигналі.
@@ -137,9 +134,7 @@
                 Проте значно ефективніше обирати таку нову частоту дискретизації, що ділить орігінальну частоту
                 націло.
                 В такому випадку можна вибрати кожне $m$-те значення сигналу та шаблону, де $m$ --- співвідношення
-                частот.
-% TODO Ken Turkowski and Steve Gabriel (1990). "Filters for Common Resampling Tasks". In Andrew S. Glassner. Graphics
-% Gems I. Academic Press. pp. 147–165. ISBN 978-0-12-286165-9.
+                частот.~\cite{book3}
             \item Брати середнє значення від деякого околу точки.
         \end{itemize}
     \subsection{Метод прискореного ковзання}

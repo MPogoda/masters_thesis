@@ -11,6 +11,7 @@
     {завідувач кафедри, д-р техн. наук, доцент Чертов~О.\,Р.}
     {професор Тарасенко~В.\,П.}
     {Пошук шаблонів у цифровому сигналі за допомогою поліномів Кунченка}
+\pagestyle{plain}
 \include{annotations}
 \tableofcontents
 \include{shortings}
@@ -21,7 +22,17 @@
 \include{project}
 \include{testing}
 
-\conclusions{}
+\lstset{breakatwhitespace=false
+       ,breaklines=true
+       ,commentstyle=\rm
+       ,escapeinside={\%*}{*)}
+       ,frame=none
+       ,language=Matlab
+       ,stringstyle=\rm
+       ,title=\lstname
+       }
+
+\conclusion{}
 В магістерській дисертації розглядалася задача пошуку шаблонів у цифрових сигналах.
 В ході дослідження було проаналізовані існуючі методу для пошуку шаблонів і порівняні їх обмеження.
 
@@ -52,5 +63,29 @@
 залежності від характеристик сигналу, апаратне прискорення для більш швидкої роботи алгоритму та апробація методу на
 даних з іншої предметної області.
 
+\begin{thebibliography}
+    \stepcounter{bibitemcount}
+    \bibitem{book1}% посилання на книжку
+    Vanderbrug, G.J. and Rosenfeld, A. (1977) Two-stage Template Matching. IEEE Transactions on Computers, C-26, 102--103.
+
+    \stepcounter{bibitemcount}
+    \bibitem{book2}% посилання на книжку
+    Rosenfeld, A. and Vanderbrug, G.J. (1977) Coarse-Fine Template Matching. IEEE Transactions on Systems, Man and Cybernetics, 7, 104-107.
+
+    \stepcounter{bibitemcount}
+    \bibitem{book3}% посилання на книжку
+    Ken Turkowski and Steve Gabriel (1990). \invcommas{Filters for Common Resampling Tasks}. In Andrew S. Glassner. Graphics
+    Gems I. Academic Press. pp. 147–165. ISBN 978-0-12-286165-9.
+\end{thebibliography}
+
+\append{Лістінг реалізації алгоритму пошуку шаблонів}
+\lstinputlisting[language=Matlab]{OneDimentionalIterator.m}
+\lstinputlisting[language=Matlab]{approximate.m}
+\lstinputlisting[language=Matlab]{match.m}
+\lstinputlisting[language=Matlab]{calculateOneDimentionalCorrelant.m}
+\lstinputlisting[language=Matlab]{ncc.m}
+\lstinputlisting[language=Matlab]{ssd.m}
+\lstinputlisting[language=Matlab]{energy_sf.m}
+\append{Ілюстративні матеріали}
 \end{document}
 % vim: spelllang=uk,en spell
