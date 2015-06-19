@@ -7,7 +7,7 @@
 Об’єктом дослідження є моделі пошуку шаблону в цифрових сигналах, особливості пошуку шаблонів для розпізнавання
 мовлення, методи оптимізації, методи обробки сигналів.
 
-Предметом дослідження є вдосконалення пошуку шаблонів за допомогою методів поліномів Кунченка у цифрових сигналах,
+Предметом дослідження є вдосконалення пошуку шаблонів за допомогою методу поліномів Кунченка у цифрових сигналах,
 зокрема в аудіосигналах, що містять мовлення.
 
 Розглянуто існуючі методи обробки цифрових сигналів, пошуку шаблонів у цифрових сигналах, запропонований новий метод і
@@ -16,10 +16,14 @@
 Результатом роботи є програмний комплекс, який був протестований на низці тестових даних, зокрема на аудіосигналах, що
 містили записане мовлення.
 
+Наукова новизна полягає в тому, що були запропоновані модифікації методу пошуку шаблонів на базі поліномів Кунченка
+(пірамідальний пошук, застосування віконної функції, відмінної від прямокутної), які дозволили суттєво збільшити його
+швидкодію та ефективність.
+
 Основні положення роботи доповідалися но конференції \invcommas{ПМК'2015}
 
 Робота складається з вступу, \total{chapter}  розділів та висновків і налічує \total{page} сторінок.
-Містить \total{figurecount} ілюстративних матеріалів, \total{tablecount} таблиць, \total{appendnum} додатки та
+Містить \total{figurecount} ілюстративних матеріалів, \total{tablecount} таблиці, \total{appendnum} додатки та
 посилається на \total{bibitemcount} літературних джерел.
 
 Ключові слова: пошук шаблонів, цифровий сигнал, обробка сигналів, розпізнавання, математичний метод, поліноми
@@ -27,7 +31,7 @@
 \clearpage
 
 \annotation{Abstract}
-Thesis is dedicated to researching, designing and developing program solution for template matching in digital signal.
+The thesis is dedicated to researching, designing and developing program solution for template matching in digital signal.
 Program was designed to correctly match subintervals of signal to some template that may be altered in some way.
 
 Models for template matching, specialities of template matching for speech recognition, optimisation methods and
@@ -36,11 +40,14 @@ signal processing methods are the main objects of research.
 Research object: improvement of template matching in digital signals using Kunchenko polynomials, especially in
 audio signals that contain speech.
 
-Also described existing methods for template matching in digital signals such as normalised cross"=correlation and sum
-of squared distances, new method was proposed.
+Also described existing methods for template matching in digital signals, new method was proposed.
 Ways for optimisation for new method were observed.
 
 Software for pattern matching was developed and tested alongside with existing methods on speech signal.
+
+Science innovation of this works consists of modifications (coarse search, application of windowing functions) for
+template matching method that is based on Kunchenko polynomials that have increased method's performance
+significantly.
 
 The main results of this work were presented at conference \invcommas{PMK'15}.
 
@@ -48,7 +55,7 @@ The work consists of an introduction, \total{chapter} sections, includes conclus
 Contains \total{figurecount} illustrative materials, \total{tablecount} tables, \total{appendnum} appendices and has
 \total{bibitemcount} references.
 
-Keywords: template matching, digital signal, signal processing, recognition, mathematical algorithm, Kunchenko
+Keywords: template matching, digital signal, signal processing, recognition, mathematical method, Kunchenko
 polynomials.
 
 % vim: spelllang=uk,en spell
