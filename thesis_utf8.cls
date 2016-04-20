@@ -53,15 +53,14 @@
 \NeedsTeXFormat{LaTeX2e} % потрібний формат
 
 % 2. Завантажуємо "батьківський клас"
-\LoadClass[a4paper,14pt,ukrainian,oneside]{extreport}
-
+\LoadClass[a4paper,14pt,pdftex,ukrainian,oneside]{extreport}
 
 % 3. Завантажуємо пакети
 % мовні пакети
 \RequirePackage{cmap}% для кодування шрифтів у pdf
 \RequirePackage[T2A]{fontenc} % пакет для підтримки кирилічних шрифтів
 \RequirePackage[utf8]{inputenc} % пакет для підтримкм Windows'івського кодування cp1251
-\RequirePackage[russian,ukrainian]{babel} % пакет для підтримки української та російської мов
+\RequirePackage[english,ukrainian]{babel} % пакет для підтримки української та російської мов
 \RequirePackage{pscyr} % пакет із гарними кирилічними шрифтами
 \RequirePackage{mathtext} % потрібні символи в режимі математичних формул
 \RequirePackage{amssymb,amsfonts,amsmath,amsthm} % потрібні символи в режимі математичних формул
@@ -69,7 +68,8 @@
 \RequirePackage{upgreek} % пакет для прямих грецьких літер
 
 % графічні пакети
-\RequirePackage{graphicx} % основний пакет для вставки графіки
+\RequirePackage[pdftex]{graphicx} % основний пакет для вставки графіки
+\RequirePackage{pdfpages}
 \RequirePackage{subfig} % пакет для вставки підрисунків
 \RequirePackage{flafter} % пакет гарантує, що рисунок чи таблица ніколи не з'являться раніше посилання на саму себе
 \RequirePackage{caption} % пакет для персоналізації заголовків рисунків та таблиць
@@ -87,7 +87,7 @@
 \RequirePackage{etoolbox} % пакет для прибирання висячого відступу в бібліографії
 
 % стилі заголовків та змісту
-\RequirePackage[rm,small,raggedright]{titlesec} % пакет для ручного керування стилем заголовків
+\RequirePackage[rm,small,raggedright,explicit]{titlesec} % пакет для ручного керування стилем заголовків
 \RequirePackage[titles,subfigure]{tocloft} % пакет для ручного керування стилем змісту
 
 % пакет для коректного представлення інтернет-посилань у "Джерелах"
@@ -170,7 +170,7 @@
 \newcounter{pages}\@ifpackageloaded{totcount}{\regtotcounter{pages}}{}
 \newcounter{appendnum}\@ifpackageloaded{totcount}{\regtotcounter{appendnum}}{}
 \newcommand{\append}[1]{
-    \titleformat{\chapter}{\centering\normalsize}{\hspace{1cm}\thechapter}{0.5em}{}
+    \titleformat{\chapter}{\centering\normalsize}{\hspace{1cm}\thechapter}{0.5em}{##1}
     \titlespacing{\chapter}{0pt}{0pt}{0pt}
     \ifnum \value{appendnum}=1 \setcounter{pages}{\value{page}} \fi
     %\ifnum \arabic{appendnum}=1 \ucahpter{Додатки} \else \clearpage \fi
@@ -179,7 +179,7 @@
         #1
     \end{center}
     \titlespacing{\chapter}{0pt}{0pt}{49pt}
-    \titleformat{\chapter}{\centering\normalsize\MakeUppercase}{\hspace{1cm}\thechapter}{0.5em}{}
+    \titleformat{\chapter}{\centering\normalsize}{\hspace{1cm}\thechapter}{0.5em}{\MakeUppercase{#1}}
     \addcontentsline{toc}{chapter}{Додаток \Asbuk{appendnum}\ #1}
     \setcounter{figure}{0}
     \setcounter{table}{0}
@@ -203,24 +203,24 @@
 % будемо змінювати стилі заголовків
 % спочатку --- для розділу
 \titleformat{\chapter} % указуємо, що модифікуємо саме розділ
-{\centering\normalsize\MakeUppercase} % указуємо формат назви (жирний, "усі великі")
+{\centering\normalsize} % указуємо формат назви (жирний, "усі великі")
 {\hspace{1cm}\thechapter} % указуємо формат власне номера: це буде просто число, без крапки
 {0.5em} % відстань між номером і назвою
-{} % текст, що передує назві
+{\MakeUppercase{#1}} % текст, що передує назві
 
 % тепер --- для підрозділу
 \titleformat{\section}[block] % указуємо, що модифікуємо саме підрозділ
 {\normalsize} % указуємо формат назви (жирний)
 {\hspace{1.25cm}\thesection} % указуємо формат власне номера: це буде просто число, без крапки
 {0.5em} % відстань між номером і назвою
-{} % текст, що передує назві
+{#1} % текст, що передує назві
 
 % тепер --- для підрозділу ще нижчого рівня
 \titleformat{\subsection}[block] % указуємо, що модифікуємо саме підрозділ нижнього рівня
 {\normalsize} % указуємо формат назви (жирний)
 {\hspace{1.25cm}\thesubsection} % указуємо формат власне номера: це буде просто число, без крапки
 {0.5em} % відстань між номером і назвою
-{} % текст, що передує назві
+{#1} % текст, що передує назві
 
 % тепер задамо відступи для заголовку розділу
 \titlespacing{\chapter} % указуємо, що модифікуємо саме розділ
@@ -394,7 +394,8 @@
 % нова команда для титульного аркушу
 % згідно прикладу з сайту факультету з незначними виправленнями
 \newcommand{\maketitlepage}[5]{
-    \thispagestyle{empty}
+    \begin{titlepage}
+    % \thispagestyle{empty}
     \setlength{\parindent}{0cm}
     \begin{center} % центрування
         \textbf{\MakeUppercase{Національний технічний університет України}}
@@ -444,15 +445,18 @@
         \textbf{на здобуття ступеня магістра}
     \end{center}
     \setfontsize{13}
-    зі спеціальності 8.04030101 \invcommas{Прикладна математика}
-
-    на тему: #5
+    {
+        \renewcommand{\arraystretch}{1}
+        \begin{tabular}{p{0.9\textwidth}}
+            зі спеціальності 8.04030101 \invcommas{Прикладна математика}\\
+            на тему: #5\\
+        \end{tabular}
+    }
 
     \vfill % невеликий відступ
 
-    \mbox{\hspace{0.2em}}~Виконав: студент 2 курсу, групи {#2}
-
     \begin{tabular}{p{0.25\textwidth} p{0.55\textwidth} b{0.1\textwidth}}
+        \multicolumn{3}{l}{Виконав: студент 2 курсу, групи {#2}}\\
         \multicolumn{2}{l}{{#1}} & \underline{\hspace{0.1\textwidth}}\\
         Науковий керівник & {#3} & \underline{\hspace{0.1\textwidth}}\\
         Консультант із~\mbox{\hspace{2em}} нормоконтролю & старший викладач Мальчиков~В.\,В. & \underline{\hspace{0.1\textwidth}}\\
@@ -476,6 +480,7 @@
     \begin{center}
         Київ --- \the\year\ року
     \end{center}
+    \end{titlepage}
 
     \clearpage % починаємо з нової сторінки
 

@@ -1,4 +1,4 @@
-\documentclass{thesis_utf8}
+\documentclass[pdftex]{thesis_utf8}
 
 \usepackage{relsize}
 \newcommand*{\defeq}{\stackrel{\text{def}}{=}}
@@ -9,8 +9,11 @@
 \maketitlepage{Погода Михайло Володимирович}
     {КМ-31М}
     {завідувач кафедри, д-р техн. наук, доцент Чертов~О.\,Р.}
-    {д-р техн. наук, професор Бідюк~П.\,І.}
+    {професор, д-р техн. наук, проф. Бідюк~П.\,І.}
     {Пошук шаблонів у цифровому сигналі за допомогою поліномів Кунченка}
+
+\includepdf[pages={1-3}]{zavd.pdf}
+
 \pagestyle{plain}
 \include{annotations}
 \tableofcontents
@@ -33,35 +36,34 @@
        }
 
 \conclusion{}
-В магістерській дисертації розглядалася задача пошуку шаблонів у цифрових сигналах.
-В ході дослідження було проаналізовані існуючі методу для пошуку шаблонів і порівняні їх обмеження.
+В магістерській дисертації була розглянута задача пошуку шаблонів у цифрових сигналах.
+В ході дослідження були проаналізовані існуючі методи для пошуку шаблонів, зіставлені обмеження, що на них
+накладаються.
 
-Під час огляду предметної області були розглянуті такі поняття, як цифровий сигнал, кросс"=кореляція, сума квадратів
-відстаней, метод ковзного вікна та віконні функції.
-Розглянуті віконні функції було використано при тестуванні в методі ковзного вікна.
+Було з’ясовано, що у випадку внесення значних змін в шаблон класичні методи (кросс"=кореляція, сума квадратів
+відстаней тощо) суттєво втрачають свої розпізнавальні можливості.
+Тому для пошуку шаблонів був вибраний метод, що базується на розкладанні функції в базисі лінійного функціонального
+простору Кунченка, який в таких випадках працює значно краще.
 
-Був запропонований метод пошуку шаблонів, що базується на розкладанні функції в базисі лінійного функціонального
-простору Кунченка.
-Відмінною особливістю цього методу є можливість пошуку шаблонів, що були значно змінені в сигналі.
-
-Також були запропоновані шляхи покращення роботи методу на основі поліномів Кунченка.
-Пірамідальний пошук дозволяє значно прискорити роботу методу, оскільки він дозволяє відфільтрувати значну частину
-сигналу як таку, що не містить шаблону, за досить короткий проміжок часу.
-Використання методів оптимізації також дозволяють значно прискорити роботу алгоритму.
+В дисертації були запропоновані шляхи покращення роботи даного методу.
+Зокрема, застосування пірамідального пошуку дозволило значно прискорити роботу методу, оскільки такий пошук дозволяє
+відфільтрувати значну частину сигналу як таку, що не містить шаблону, за досить короткий проміжок часу.
+Використання методу прискореного ковзання також дозволяє значно прискорити роботу алгоритму.
 
 Був розроблений та оптимізований програмний комплекс в математичному середовищі MathWorks MATLAB 2014b.
 
-Під час статистичного експерименту було порівняно ефективність роботи обраного методу з існуючими методами як на
-штучно"=згенерованому сигналі, так і для аудіозапису мовлення.
-Як результат цього тестування можна зазначити, що обраний метод дозволяє отримати аналогічну ступінь розпізнавання на
-штучно"=згенерованих сигналах і значно вищу якість на аудіозаписах мовлення.
+Під час статистичного експерименту було порівняно ефективність роботи запропонованого методу з існуючими методами як
+на штучно згенерованому сигналі, так і для аудіозапису мовлення.
+Як результат цього тестування можна зазначити, що запропонований метод дозволяє отримати аналогічну ступінь
+розпізнавання на штучно згенерованих сигналах і значно вищу якість на аудіозаписах мовлення.
 
 Для пошуку шаблону в аудіозаписі з мовленням було використано визначення коротко"=часової енергії й віконних функцій.
-Було проаналізовано поведінку алгоритму в залежності від обраних параметрів методу.
+Було проаналізовано поведінку алгоритму в залежності від обраних параметрів методу та вибрано оптимальний набір ---
+віконна функція Гемінга з розміром вікна в 20~мілісекунд та кроком між вікнами в 1,25 мілісекунди.
 
-Для подальшого розвитку слід зазначити можливість дослідження методів інтелектуального вибору параметрів алгоритму в
-залежності від характеристик сигналу, апаратне прискорення для більш швидкої роботи алгоритму та апробація методу на
-даних з іншої предметної області.
+Як перспективні напрями подальшого розвитку запропонованого методу можна зазначити такі: дослідження методів
+інтелектуального вибору параметрів алгоритму в залежності від характеристик сигналу, апаратне прискорення для більш
+швидкої роботи алгоритму та апробація методу на даних з іншої предметної області.
 
 \begin{thebibliography}
     \stepcounter{bibitemcount}
@@ -118,8 +120,9 @@
 
     \stepcounter{bibitemcount}
     \bibitem{mine}
-    Чертов~О.\,Р., Погода~М.\,В. Метод прискорення пошуку шаблонів за допомогою поліномів Кунченка. // Прикладна
-    Математика та Комп’ютинг. --- 2015. — с.~241--246
+    Чертов~О.\,Р. Метод прискорення пошуку шаблонів за допомогою поліномів Кунченка / Чертов~О.\,Р., Погода~М.\,В. //
+    Прикладна Математика та Комп’ютинг. ПМК, 2015: сьома наук. конф. магістрантів та аспірантів, Київ,
+    15--17~квіт.~2015~р.: зб. тез. доп. / [редкол.: Дичка~І.\,А. та ін.]. --- К.: Просвіта, 2015. — с.~241--246
 
     \stepcounter{bibitemcount}
     \bibitem{book2}% посилання на книжку
@@ -138,7 +141,8 @@
 
 \append{Лістінг реалізації алгоритму пошуку шаблонів}
 \lstinputlisting[language=Matlab]{OneDimentionalIterator.m}
-\lstinputlisting[language=Matlab]{approximate.m}
+\clearpage
+\lstinputlisting[language=Matlab]{pyramid.m}
 \lstinputlisting[language=Matlab]{match.m}
 \lstinputlisting[language=Matlab]{calculateOneDimentionalCorrelant.m}
 \lstinputlisting[language=Matlab]{ncc.m}
@@ -157,6 +161,7 @@
     \caption{Слайд 2}
 \end{figure}
 
+\clearpage
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.63\textwidth]{slides/slide03.png}
@@ -169,6 +174,7 @@
     \caption{Слайд 4}
 \end{figure}
 
+\clearpage
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.63\textwidth]{slides/slide05.png}
@@ -181,6 +187,7 @@
     \caption{Слайд 6}
 \end{figure}
 
+\clearpage
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.63\textwidth]{slides/slide07.png}
@@ -192,6 +199,7 @@
     \includegraphics[width=0.63\textwidth]{slides/slide08.png}
     \caption{Слайд 8}
 \end{figure}
+\clearpage
 
 \begin{figure}[h]
     \centering
@@ -204,6 +212,7 @@
     \includegraphics[width=0.63\textwidth]{slides/slide10.png}
     \caption{Слайд 10}
 \end{figure}
+\clearpage
 
 \begin{figure}[h]
     \centering
@@ -216,6 +225,7 @@
     \includegraphics[width=0.63\textwidth]{slides/slide12.png}
     \caption{Слайд 12}
 \end{figure}
+\clearpage
 
 \begin{figure}[h]
     \centering
@@ -228,11 +238,96 @@
     \includegraphics[width=0.63\textwidth]{slides/slide14.png}
     \caption{Слайд 14}
 \end{figure}
+\clearpage
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.63\textwidth]{slides/slide15.png}
     \caption{Слайд 15}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.63\textwidth]{slides/slide16.png}
+    \caption{Слайд 16}
+\end{figure}
+\clearpage
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.63\textwidth]{slides/slide17.png}
+    \caption{Слайд 17}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.63\textwidth]{slides/slide18.png}
+    \caption{Слайд 18}
+\end{figure}
+\clearpage
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.63\textwidth]{slides/slide19.png}
+    \caption{Слайд 19}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.63\textwidth]{slides/slide20.png}
+    \caption{Слайд 20}
+\end{figure}
+\clearpage
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.63\textwidth]{slides/slide21.png}
+    \caption{Слайд 21}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.63\textwidth]{slides/slide22.png}
+    \caption{Слайд 22}
+\end{figure}
+\clearpage
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.63\textwidth]{slides/slide23.png}
+    \caption{Слайд 23}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.63\textwidth]{slides/slide24.png}
+    \caption{Слайд 24}
+\end{figure}
+\clearpage
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.63\textwidth]{slides/slide25.png}
+    \caption{Слайд 25}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.63\textwidth]{slides/slide26.png}
+    \caption{Слайд 26}
+\end{figure}
+\clearpage
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.63\textwidth]{slides/slide27.png}
+    \caption{Слайд 27}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.63\textwidth]{slides/slide28.png}
+    \caption{Слайд 28}
 \end{figure}
 \end{document}
 % vim: spelllang=uk,en spell
